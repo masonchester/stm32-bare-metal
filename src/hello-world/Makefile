@@ -1,7 +1,9 @@
 TARGET = main
 
+COMMON_DIR = ~/projects/stm32-bare-metal/src/common
+
 # Define the linker script location and chip architecture.
-LD_SCRIPT = STM32L476XX.ld
+LD_SCRIPT = $(COMMON_DIR)/stm32l476xx.ld
 MCU_SPEC  = cortex-m4
 
 # Toolchain definitions (ARM bare metal defaults)
@@ -23,17 +25,16 @@ CFLAGS += -fmessage-length=0
 # (Set system to ignore semihosted junk)
 CFLAGS += --specs=nosys.specs
 
-# Linker directives.
-LSCRIPT = ./$(LD_SCRIPT)
+
 LFLAGS += -mcpu=$(MCU_SPEC)
 LFLAGS += -mthumb
 LFLAGS += -Wall
 LFLAGS += --specs=nosys.specs
 LFLAGS += -nostdlib
 LFLAGS += -lgcc
-LFLAGS += -T$(LSCRIPT)
+LFLAGS += -T $(LD_SCRIPT)
 
-C_SRC    = ./main.c ./stm32l476xx_startup.c
+C_SRC    = ./main.c $(COMMON_DIR)/stm32l476xx_startup.c
 
 OBJS = $(C_SRC:.c=.o)
 
@@ -54,3 +55,4 @@ $(TARGET).bin: $(TARGET).elf
 clean:
 	rm -f $(OBJS)
 	rm -f $(TARGET).elf
+	rm -f $(TARGET).bin
