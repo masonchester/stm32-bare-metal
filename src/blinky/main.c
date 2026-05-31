@@ -15,11 +15,11 @@ int main(){
 
     while (1) {
         
-        GPIOA->BSRR |= (1 << LED_PIN);
-        delay(10000);
+        GPIOA->BSRR = (1 << LED_PIN);
+        delay(100000);
 
-        GPIOA->BSRR |= (1 << (LED_PIN + 16));
-        delay(10000);
+        GPIOA->BSRR = (1 << (LED_PIN + 16));
+        delay(100000);
     }
 
     return 0;
