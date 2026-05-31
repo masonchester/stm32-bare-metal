@@ -44,6 +44,10 @@ $(TARGET).bin:
 flash:
 	st-flash --reset write ./build/$(TARGET).bin 0x08000000
 
+.PHONY: flash-clean
+flash-clean:
+	st-flash erase
+
 .PHONY: clean
 clean:
 	rm -rf ./build/$(TARGET).elf
