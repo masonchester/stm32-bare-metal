@@ -20,6 +20,7 @@ STARTUPSCRIPT = ../../STM32L476RG/stm32l476rg_startup.c
 # Define included header files 
 INCLUDE = -I../../Drivers/CMSIS/Core/Include
 INCLUDE += -I../../Drivers/CMSIS/Device/Include
+INCLUDE += -I./include
 
 # Define compilation flags
 CFLAGS = -Wall -T $(LINKERSCRIPT)
@@ -28,7 +29,7 @@ CFLAGS += -nostdlib -specs=nosys.specs
 CFLAGS += $(INCLUDE)
 
 # Build sources
-SRCS = main.c
+SRCS = main.c gpio_handler.c led.c
 SRCS += $(STARTUPSCRIPT)
 
 .PHONY: all
