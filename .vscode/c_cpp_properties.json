@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/Drivers/**"
+                "${workspaceFolder}/Drivers/**",
+                "${workspaceFolder}/src/**/include"
             ],
             "defines": [],
             "compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc",
