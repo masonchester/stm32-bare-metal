@@ -3,12 +3,10 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/Drivers/**",
-                "${workspaceFolder}/src/**/include"
+                "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc",
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++14"
         }
